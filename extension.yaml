@@ -1,0 +1,7 @@
+﻿Id: JsonLibraryImportExport_888ab97e-ea1b-40e5-a2da-ef917aee0603
+Name: Json Library Import Export
+Author: John Doe
+Version: 1.0
+Module: JsonLibraryImportExport.dll
+Type: GenericPlugin
+Icon: icon.png
