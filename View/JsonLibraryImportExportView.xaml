@@ -5,10 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JsonLibraryImportExport.View"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
+    </UserControl.Resources>
     <DockPanel Margin="20">
         <StackPanel DockPanel.Dock="Bottom" Margin="0,15,0,0">
-            <Button Content="Import All Games" Command="{Binding ImportAllGamesCommand}" />
-            <Button Content="Export All Games" Command="{Binding ExportAllGamesCommand}" />
+            <Button Content="Import" Command="{Binding ImportCommand}" />
+            <Button Content="Export" Command="{Binding ExportCommand}" />
+        </StackPanel>
+        <TextBlock Text="Select databases to export:" Margin="0,0,0,20" DockPanel.Dock="Top" FontSize="16"/>
+        <StackPanel>
+            <CheckBox IsChecked="{Binding Settings.Settings.Games}" Content="Games" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.CompletionStatuses}" Content="CompletionStatuses" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Genres}" Content="Genres" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Categories}" Content="Categories" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Features}" Content="Features" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Platforms}" Content="Platforms" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Regions}" Content="Regions" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Series}" Content="Series" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Sources}" Content="Sources" Margin="0,0,0,5" />
+            <CheckBox IsChecked="{Binding Settings.Settings.Tags}" Content="Tags" Margin="0,0,0,5" />
         </StackPanel>
     </DockPanel>
 </UserControl>

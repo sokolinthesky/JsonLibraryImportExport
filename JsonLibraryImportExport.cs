@@ -33,7 +33,16 @@ namespace JsonLibraryImportExport
             {
                 new MainMenuItem
                 {
-                    Description = "Open import export window",
+                    Description = "Open export window",
+                    MenuSection = "@Json Library Import Export",
+                    Action = _ =>
+                    {
+                        OpenImportExportWindow();
+                    }
+                },
+                new MainMenuItem
+                {
+                    Description = "Open import window",
                     MenuSection = "@Json Library Import Export",
                     Action = _ =>
                     {
@@ -50,8 +59,8 @@ namespace JsonLibraryImportExport
                 ShowMinimizeButton = false,
                 ShowMaximizeButton = true
             });
-            window.Height = 150;
-            window.Width = 450;
+            window.Height = 450;
+            window.Width = 250;
             window.Title = "Json Library Import Export";
             window.Content = new JsonLibraryImportExportView();
             window.DataContext = new JsonLibraryImportExportViewModel(PlayniteApi, settings);

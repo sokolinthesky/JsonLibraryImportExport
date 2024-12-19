@@ -10,16 +10,27 @@ namespace JsonLibraryImportExport
 {
     public class JsonLibraryImportExportSettings : ObservableObject
     {
-        private string option1 = string.Empty;
-        private bool option2 = false;
-        private bool optionThatWontBeSaved = false;
+        private bool games = false;
+        private bool genres = false;
+        private bool categories = false;
+        private bool features = false;
+        private bool platforms = false;
+        private bool regions = false;
+        private bool series = false;
+        private bool sources = false;
+        private bool tags = false;
+        private bool completionStatuses = false;
 
-        public string Option1 { get => option1; set => SetValue(ref option1, value); }
-        public bool Option2 { get => option2; set => SetValue(ref option2, value); }
-        // Playnite serializes settings object to a JSON object and saves it as text file.
-        // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
-        [DontSerialize]
-        public bool OptionThatWontBeSaved { get => optionThatWontBeSaved; set => SetValue(ref optionThatWontBeSaved, value); }
+        public bool Games { get => games; set => SetValue(ref games, value); }
+        public bool Genres { get => genres; set => SetValue(ref genres, value); }
+        public bool Categories { get => categories; set => SetValue(ref categories, value); }
+        public bool Features { get => features; set => SetValue(ref features, value); }
+        public bool Platforms { get => platforms; set => SetValue(ref platforms, value); }
+        public bool Regions { get => regions; set => SetValue(ref regions, value); }
+        public bool Series { get => series; set => SetValue(ref series, value); }
+        public bool Sources { get => sources; set => SetValue(ref sources, value); }
+        public bool Tags { get => tags; set => SetValue(ref tags, value); }
+        public bool CompletionStatuses { get => completionStatuses; set => SetValue(ref completionStatuses, value); }
     }
 
     public class JsonLibraryImportExportSettingsViewModel : ObservableObject, ISettings

@@ -1,8 +1,13 @@
 ﻿using Playnite.SDK;
 using Newtonsoft.Json;
 using Playnite.SDK.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.IO;
+using System.Collections;
 
 namespace JsonLibraryImportExport.ViewModel
 {
@@ -18,7 +23,7 @@ namespace JsonLibraryImportExport.ViewModel
             Settings = settings;
         }
 
-        public RelayCommand ExportAllGamesCommand
+        public RelayCommand ExportCommand
         {
             get => new RelayCommand(() =>
             {
@@ -33,13 +38,29 @@ namespace JsonLibraryImportExport.ViewModel
             {
                 return;
             }
-            IEnumerable<Game> games = playniteApi.Database.Games;
-            var jsonString = JsonConvert.SerializeObject(games, Formatting.Indented);
-            string fullPathGames = Path.Combine(folderPath, "games.json");
-            File.WriteAllText(fullPathGames, jsonString);
+            export(playniteApi.Database.Games, folderPath, "games.json", Settings.Settings.Games);
+            export(playniteApi.Database.Genres, folderPath, "genres.json", Settings.Settings.Genres);
+            export(playniteApi.Database.Categories, folderPath, "categories.json", Settings.Settings.Categories);
+            export(playniteApi.Database.CompletionStatuses, folderPath, "completionstatuses.json", Settings.Settings.CompletionStatuses);
+            export(playniteApi.Database.Features, folderPath, "features.json", Settings.Settings.Features);
+            export(playniteApi.Database.Platforms, folderPath, "platforms.json", Settings.Settings.Platforms);
+            export(playniteApi.Database.Regions, folderPath, "regions.json", Settings.Settings.Regions);
+            export(playniteApi.Database.Series, folderPath, "series.json", Settings.Settings.Series);
+            export(playniteApi.Database.Sources, folderPath, "sources.json", Settings.Settings.Sources);
+            export(playniteApi.Database.Tags, folderPath, "tags.json", Settings.Settings.Tags);
         }
 
-        public RelayCommand ImportAllGamesCommand
+        private void export(IEnumerable items, string folderPath, string filename, bool selected)
+        {
+            if (!selected)
+            {
+                return;
+            }
+            var jsonString = JsonConvert.SerializeObject(items, Formatting.Indented);
+            File.WriteAllText(Path.Combine(folderPath, filename), jsonString);
+        }
+
+        public RelayCommand ImportCommand
         {
             get => new RelayCommand(() =>
             {
@@ -53,6 +74,7 @@ namespace JsonLibraryImportExport.ViewModel
             var jsonString = File.ReadAllText(filePath);
 
             IEnumerable<Game> games = JsonConvert.DeserializeObject<IEnumerable<Game>>(jsonString);
+
 
             foreach (var game in games)
             {
