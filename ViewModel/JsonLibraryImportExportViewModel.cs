@@ -3,9 +3,6 @@ using Newtonsoft.Json;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
 
@@ -48,6 +45,7 @@ namespace JsonLibraryImportExport.ViewModel
             Export(playniteApi.Database.Series, folderPath, "series.json", Settings.Settings.Series);
             Export(playniteApi.Database.Sources, folderPath, "sources.json", Settings.Settings.Sources);
             Export(playniteApi.Database.Tags, folderPath, "tags.json", Settings.Settings.Tags);
+            playniteApi.Dialogs.ShowMessage("Selected databases sucessfully expoted to: " + folderPath);
         }
 
         private void Export(IEnumerable items, string folderPath, string filename, bool selected)
@@ -64,16 +62,24 @@ namespace JsonLibraryImportExport.ViewModel
         {
             get => new RelayCommand(() =>
             {
-                Import(Settings.Settings.GamesPath, playniteApi.Database.Games);
-                Import(Settings.Settings.GenresPath, playniteApi.Database.Genres);
-                Import(Settings.Settings.CategoriesPath, playniteApi.Database.Categories);
-                Import(Settings.Settings.FeaturesPath, playniteApi.Database.Features);
-                Import(Settings.Settings.PlatformPath, playniteApi.Database.Platforms);
-                Import(Settings.Settings.RegionsPath, playniteApi.Database.Regions);
-                Import(Settings.Settings.SeriesPath, playniteApi.Database.Series);
-                Import(Settings.Settings.SourcesPath, playniteApi.Database.Sources);
-                Import(Settings.Settings.TagsPath, playniteApi.Database.Tags);
-                Import(Settings.Settings.CompletionStatusesPath, playniteApi.Database.CompletionStatuses);
+                try
+                {
+                    Import(Settings.Settings.GamesPath, playniteApi.Database.Games);
+                    Import(Settings.Settings.GenresPath, playniteApi.Database.Genres);
+                    Import(Settings.Settings.CategoriesPath, playniteApi.Database.Categories);
+                    Import(Settings.Settings.FeaturesPath, playniteApi.Database.Features);
+                    Import(Settings.Settings.PlatformPath, playniteApi.Database.Platforms);
+                    Import(Settings.Settings.RegionsPath, playniteApi.Database.Regions);
+                    Import(Settings.Settings.SeriesPath, playniteApi.Database.Series);
+                    Import(Settings.Settings.SourcesPath, playniteApi.Database.Sources);
+                    Import(Settings.Settings.TagsPath, playniteApi.Database.Tags);
+                    Import(Settings.Settings.CompletionStatusesPath, playniteApi.Database.CompletionStatuses);
+                    playniteApi.Dialogs.ShowMessage("Selected databases sucessfully imported");
+                }
+                catch (Exception e)
+                {
+                    playniteApi.Dialogs.ShowErrorMessage("Unaable to import selected databases: " + e.Message);
+                }
             });
         }
 

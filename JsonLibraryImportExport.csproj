@@ -59,8 +59,8 @@
     <Compile Include="View\JsonLibraryImportView.xaml.cs">
       <DependentUpon>JsonLibraryImportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\JsonLibraryImportExportView.xaml.cs">
-      <DependentUpon>JsonLibraryImportExportView.xaml</DependentUpon>
+    <Compile Include="View\JsonLibraryExportView.xaml.cs">
+      <DependentUpon>JsonLibraryExportView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\JsonLibraryImportExportView.xaml">
+    <Page Include="View\JsonLibraryExportView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

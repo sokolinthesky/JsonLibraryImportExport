@@ -6,7 +6,6 @@ using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace JsonLibraryImportExport
 {
@@ -60,10 +59,10 @@ namespace JsonLibraryImportExport
                 ShowMinimizeButton = false,
                 ShowMaximizeButton = true
             });
-            window.Height = 450;
+            window.Height = 400;
             window.Width = 250;
             window.Title = "Json Library Export";
-            window.Content = new JsonLibraryImportExportView();
+            window.Content = new JsonLibraryExportView();
             window.DataContext = new JsonLibraryImportExportViewModel(PlayniteApi, settings);
             window.Owner = PlayniteApi.Dialogs.GetCurrentAppWindow();
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
