@@ -5,9 +5,10 @@ namespace JsonLibraryImportExport.View
     /// <summary>
     /// Interaction logic for LibraryExporterView.xaml
     /// </summary>
-    public partial class JsonLibraryImportExportView : UserControl
+    public partial class JsonLibraryImportView : UserControl
     {
-        public JsonLibraryImportExportView()
+
+        public JsonLibraryImportView()
         {
             InitializeComponent();
         }

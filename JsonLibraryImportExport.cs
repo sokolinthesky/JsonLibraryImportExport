@@ -29,30 +29,31 @@ namespace JsonLibraryImportExport
 
         public override IEnumerable<MainMenuItem> GetMainMenuItems(GetMainMenuItemsArgs args)
         {
+            string menuSection = "@Json Library Import Export";
             return new List<MainMenuItem>
             {
                 new MainMenuItem
                 {
                     Description = "Open export window",
-                    MenuSection = "@Json Library Import Export",
+                    MenuSection = menuSection,
                     Action = _ =>
                     {
-                        OpenImportExportWindow();
+                        OpenExportWindow();
                     }
                 },
                 new MainMenuItem
                 {
                     Description = "Open import window",
-                    MenuSection = "@Json Library Import Export",
+                    MenuSection = menuSection,
                     Action = _ =>
                     {
-                        OpenImportExportWindow();
+                        OpenImportWindow();
                     }
                 }
             };
         }
 
-        private void OpenImportExportWindow()
+        private void OpenExportWindow()
         {
             var window = PlayniteApi.Dialogs.CreateWindow(new WindowCreationOptions
             {
@@ -61,8 +62,26 @@ namespace JsonLibraryImportExport
             });
             window.Height = 450;
             window.Width = 250;
-            window.Title = "Json Library Import Export";
+            window.Title = "Json Library Export";
             window.Content = new JsonLibraryImportExportView();
+            window.DataContext = new JsonLibraryImportExportViewModel(PlayniteApi, settings);
+            window.Owner = PlayniteApi.Dialogs.GetCurrentAppWindow();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            window.ShowDialog();
+        }
+
+        private void OpenImportWindow()
+        {
+            var window = PlayniteApi.Dialogs.CreateWindow(new WindowCreationOptions
+            {
+                ShowMinimizeButton = false,
+                ShowMaximizeButton = true
+            });
+            window.Height = 550;
+            window.Width = 470;
+            window.Title = "Json Library Import";
+            window.Content = new JsonLibraryImportView();
             window.DataContext = new JsonLibraryImportExportViewModel(PlayniteApi, settings);
             window.Owner = PlayniteApi.Dialogs.GetCurrentAppWindow();
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -113,11 +132,6 @@ namespace JsonLibraryImportExport
         public override ISettings GetSettings(bool firstRunSettings)
         {
             return settings;
-        }
-
-        public override UserControl GetSettingsView(bool firstRunSettings)
-        {
-            return new JsonLibraryImportExportSettingsView();
         }
     }
 }

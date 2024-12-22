@@ -2,7 +2,9 @@
 using Playnite.SDK.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +12,7 @@ namespace JsonLibraryImportExport
 {
     public class JsonLibraryImportExportSettings : ObservableObject
     {
+        //EXPORT
         private bool games = false;
         private bool genres = false;
         private bool categories = false;
@@ -31,6 +34,29 @@ namespace JsonLibraryImportExport
         public bool Sources { get => sources; set => SetValue(ref sources, value); }
         public bool Tags { get => tags; set => SetValue(ref tags, value); }
         public bool CompletionStatuses { get => completionStatuses; set => SetValue(ref completionStatuses, value); }
+
+        //IMPORT
+        private string gamesPath;
+        private string genresPath;
+        private string categoriesPath;
+        private string featuresPath;
+        private string platformPath;
+        private string regionsPath;
+        private string seriesPath;
+        private string sourcesPath;
+        private string tagsPath;
+        private string completionStatusesPath;
+
+        public string GamesPath { get => gamesPath; set => gamesPath = value; }
+        public string GenresPath { get => genresPath; set => genresPath = value; }
+        public string CategoriesPath { get => categoriesPath; set => categoriesPath = value; }
+        public string FeaturesPath { get => featuresPath; set => featuresPath = value; }
+        public string PlatformPath { get => platformPath; set => platformPath = value; }
+        public string RegionsPath { get => regionsPath; set => regionsPath = value; }
+        public string SeriesPath { get => seriesPath; set => seriesPath = value; }
+        public string SourcesPath { get => sourcesPath; set => sourcesPath = value; }
+        public string TagsPath { get => tagsPath; set => tagsPath = value; }
+        public string CompletionStatusesPath { get => completionStatusesPath; set => completionStatusesPath = value; }
     }
 
     public class JsonLibraryImportExportSettingsViewModel : ObservableObject, ISettings

@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="JsonLibraryImportExport.View.JsonLibraryImportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JsonLibraryImportExport.View"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}" />
+    </UserControl.Resources>
+    <DockPanel Margin="20">
+        <StackPanel Margin="10">
+            <TextBlock Text="Select databases to import:" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Games:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.GamesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectGamesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Genres:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.GenresPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectGenresCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Categories:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.CategoriesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectCategoriesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Features:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.FeaturesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectFeaturesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Platform:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.PlatformPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectPlatformCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Regions:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.RegionsPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelectRegionsCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Series:" Width="130" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox Text="{Binding Settings.Settings.SeriesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelecSeriesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Sources:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.SourcesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelecSourcesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Tags:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.TagsPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelecTagsCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Completion Statuses:" Width="130" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Settings.Settings.CompletionStatusesPath}" IsReadOnly="True" Width="200" Margin="5,0,0,0" />
+                <Button Content="Browse" Command="{Binding SelecCompletionStatusesCommand}" Margin="5,0,0,0" />
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Bottom" Margin="0,15,0,0">
+                <Button Content="Import" Command="{Binding ImportCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+
+</UserControl>
