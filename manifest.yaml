@@ -1,0 +1,8 @@
+AddonId: JsonLibraryImportExport_888ab97e-ea1b-40e5-a2da-ef917aee0603
+Packages:
+  - Version: 1.0.0
+    RequiredApiVersion: 6.11.0
+    ReleaseDate: 2024-12-23
+    PackageUrl: https://github.com/sokolinthesky/JsonLibraryImportExport/releases/download/1.0.0/JsonLibraryImportExport_888ab97e-ea1b-40e5-a2da-ef917aee0603_1_0.pext
+    Changelog:
+    - Initial release
