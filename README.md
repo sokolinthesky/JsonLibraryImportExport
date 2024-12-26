@@ -1,3 +1,4 @@
+[![Github All Releases](https://img.shields.io/github/downloads/sokolinthesky/JsonLibraryImportExport/total.svg)]()<br><br>
 <img src="icon.png" width="64" height="64"></img>
 # Json Library Import Export 
 Playnite plugin for importing/exporting your library in JSON format. <br>
